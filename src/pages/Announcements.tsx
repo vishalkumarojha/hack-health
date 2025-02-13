@@ -1,11 +1,11 @@
-import { useState } from "react"
+import { useState } from "react";
 
 interface Announcement {
-  $id: string
-  title: string
-  content: string
-  date: string
-  priority: "high" | "medium" | "low"
+  $id: string;
+  title: string;
+  content: string;
+  date: string;
+  priority: "high" | "medium" | "low";
 }
 
 export default function Announcements() {
@@ -48,37 +48,37 @@ export default function Announcements() {
       date: new Date(Date.now() - 345600000).toISOString(),
       priority: "low",
     },
-  ])
+  ]);
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case "high":
-        return "border-red-500 bg-red-50"
+        return "border-red-500 bg-red-50";
       case "medium":
-        return "border-yellow-500 bg-yellow-50"
+        return "border-yellow-500 bg-yellow-50";
       case "low":
-        return "border-green-500 bg-green-50"
+        return "border-green-500 bg-green-50";
       default:
-        return "border-gray-200"
+        return "border-gray-200";
     }
-  }
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-16">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Announcements</h1>
-        <div className="flex space-x-2">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-50 text-red-800">
-            High Priority
-          </span>
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-50 text-yellow-800">
-            Medium Priority
-          </span>
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-50 text-green-800">
-            Low Priority
-          </span>
-        </div>
+      <h1 className="text-3xl font-bold text-gray-900 mb-4">Announcements</h1>
+      
+      <div className="flex space-x-2 mb-6">
+        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-50 text-red-800">
+          High Priority
+        </span>
+        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-50 text-yellow-800">
+          Medium Priority
+        </span>
+        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-50 text-green-800">
+          Low Priority
+        </span>
       </div>
+      
       <div className="space-y-6">
         {announcements.map((announcement) => (
           <div
@@ -88,13 +88,12 @@ export default function Announcements() {
             <h2 className="text-xl font-semibold text-gray-900 mb-2">{announcement.title}</h2>
             <p className="text-gray-600 mb-4">{announcement.content}</p>
             <p className="text-sm text-gray-500">
-              Posted {new Date(announcement.date).toLocaleDateString()} at{" "}
+              Posted {new Date(announcement.date).toLocaleDateString()} at {" "}
               {new Date(announcement.date).toLocaleTimeString()}
             </p>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
-
