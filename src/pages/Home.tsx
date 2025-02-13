@@ -35,17 +35,17 @@ export default function Home() {
           <div>
             <div className="flex gap-2 mb-6">
               <img
-                src="src\assets\health_hack-removebg-preview.png"
+                src="https://cloud.appwrite.io/v1/storage/buckets/67ae07850038fae2b4b8/files/67ae0f4400145051b91f/view?project=67a99dc400202e23d936&mode=admin"
                 alt=""
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white shadow-lg"
               />
               <img
-                src="src\assets\health_hack-removebg-preview.png"
+                src="https://cloud.appwrite.io/v1/storage/buckets/67ae07850038fae2b4b8/files/67ae0f4400145051b91f/view?project=67a99dc400202e23d936&mode=admin"
                 alt=""
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white shadow-lg -ml-4"
               />
               <img
-                src="src\assets\health_hack-removebg-preview.png"
+                src="https://cloud.appwrite.io/v1/storage/buckets/67ae07850038fae2b4b8/files/67ae0f4400145051b91f/view?project=67a99dc400202e23d936&mode=admin"
                 alt=""
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white shadow-lg -ml-4"
               />
