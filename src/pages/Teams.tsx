@@ -1,60 +1,11 @@
+"use client"
+
 import { useState } from "react"
 import { Link } from "react-router-dom"
-
-interface TeamMember {
-  id: string
-  name: string
-  role: string
-  avatar: string
-}
-
-interface Team {
-  $id: string
-  name: string
-  members: TeamMember[]
-  project: string
-  description: string
-  techStack: string[]
-}
+import { getAllTeams } from "../lib/localStorage"
 
 export default function Teams() {
-  const [teams] = useState<Team[]>([
-    {
-      $id: "1",
-      name: "HealthTech Innovators",
-      members: [
-        { id: "1", name: "John Doe", role: "Full Stack Developer", avatar: "/placeholder.svg?height=40&width=40" },
-        { id: "2", name: "Jane Smith", role: "UI/UX Designer", avatar: "/placeholder.svg?height=40&width=40" },
-      ],
-      project: "AI-Powered Health Monitoring",
-      description: "Developing an AI system for early disease detection using wearable data.",
-      techStack: ["React", "Python", "TensorFlow"],
-    },
-    {
-      $id: "2",
-      name: "MedAI Solutions",
-      members: [
-        { id: "3", name: "Mike Johnson", role: "ML Engineer", avatar: "/placeholder.svg?height=40&width=40" },
-        { id: "4", name: "Sarah Wilson", role: "Backend Developer", avatar: "/placeholder.svg?height=40&width=40" },
-      ],
-      project: "Virtual Health Assistant",
-      description: "Creating a virtual assistant for medical consultations.",
-      techStack: ["Vue.js", "Node.js", "OpenAI"],
-    },
-    // Add 8 more teams with similar structure
-    {
-      $id: "3",
-      name: "Health Data Pioneers",
-      members: [
-        { id: "5", name: "Alex Brown", role: "Data Scientist", avatar: "/placeholder.svg?height=40&width=40" },
-        { id: "6", name: "Emily Davis", role: "Frontend Developer", avatar: "/placeholder.svg?height=40&width=40" },
-      ],
-      project: "Health Records Blockchain",
-      description: "Secure and decentralized health records management system.",
-      techStack: ["React", "Solidity", "Web3.js"],
-    },
-    // ... Add more teams
-  ])
+  const [teams] = useState(() => getAllTeams())
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

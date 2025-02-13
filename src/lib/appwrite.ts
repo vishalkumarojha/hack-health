@@ -1,4 +1,5 @@
 import { Client, Account, Databases } from "appwrite"
+import { setUserTeam, getUserTeam } from "./localStorage"
 
 // Initialize the Appwrite client
 const client = new Client().setEndpoint("https://cloud.appwrite.io/v1").setProject("67a99dc400202e23d936")
@@ -14,7 +15,8 @@ export const login = async (email: string, password: string) => {
     if (session.$id) {
       // Get user details after successful login
       const user = await account.get()
-      return { success: true, user }
+      const teamName = localStorage.getItem(`user_team_${email}`)
+      return { success: true, user: { ...user, teamName } }
     }
     return { success: false, error: "Login failed" }
   } catch (error: any) {
@@ -26,11 +28,14 @@ export const login = async (email: string, password: string) => {
   }
 }
 
-export const register = async (email: string, password: string, name: string) => {
+export const register = async (email: string, password: string, name: string, teamName: string) => {
   try {
     const user = await account.create("unique()", email, password, name)
 
     if (user.$id) {
+      // Store team association locally
+      setUserTeam(email, teamName)
+
       // Automatically log in after successful registration
       return await login(email, password)
     }
@@ -64,7 +69,8 @@ export const logout = async () => {
 export const checkAuth = async () => {
   try {
     const user = await account.get()
-    return { success: true, user }
+    const teamName = getUserTeam(user.email)
+    return { success: true, user: { ...user, teamName } }
   } catch {
     return { success: false, user: null }
   }

@@ -34,6 +34,20 @@ export default function Announcements() {
       date: new Date(Date.now() - 172800000).toISOString(),
       priority: "medium",
     },
+    {
+      $id: "4",
+      title: "Deadline Extension",
+      content: "Project submission deadline has been extended by 24 hours. Make the most of this extra time!",
+      date: new Date(Date.now() - 259200000).toISOString(),
+      priority: "high",
+    },
+    {
+      $id: "5",
+      title: "New Resources Available",
+      content: "Check out the new healthcare APIs and datasets added to our resources section.",
+      date: new Date(Date.now() - 345600000).toISOString(),
+      priority: "low",
+    },
   ])
 
   const getPriorityColor = (priority: string) => {
@@ -50,7 +64,7 @@ export default function Announcements() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-16">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Announcements</h1>
         <div className="flex space-x-2">
