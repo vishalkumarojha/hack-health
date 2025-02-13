@@ -47,6 +47,7 @@ export const accommodations: Accommodation[] = [
     capacity: 50,
     available: 20,
     location: {
+      name: "Tech Hub Hotel",
       address: "123 Tech Street, Innovation District",
       coordinates: {
         lat: 40.7128,
@@ -59,12 +60,13 @@ export const accommodations: Accommodation[] = [
 
 export const transportOptions: TransportOption[] = [
   {
-    id: "1",
+    id: 33,
     type: "shuttle",
     name: "Event Shuttle Service",
     description: "Free shuttle service between venue and official accommodations",
     schedule: ["Every 30 mins from 7:00 AM to 10:00 PM"],
     location: {
+      address: "123 Event Venue Street",
       name: "Main Entrance",
       coordinates: {
         lat: 40.7128,
@@ -72,7 +74,7 @@ export const transportOptions: TransportOption[] = [
       },
     },
     capacity: 20,
-    // price: "Free",
+    price: "",
     contact: "+1 (555) 123-4567",
   },
   // Add more transport options...

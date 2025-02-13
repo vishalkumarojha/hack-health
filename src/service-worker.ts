@@ -80,10 +80,15 @@ self.addEventListener("install", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.mode === "navigate") {
     event.respondWith(
-      fetch(event.request).catch(() => {
-        return caches.match("/offline.html")
-      }),
-    )
+      fetch(event.request).catch(async () => {
+        const cachedResponse = await caches.match("/offline.html");
+        return cachedResponse || new Response("Offline page not available", {
+          status: 404,
+          headers: { "Content-Type": "text/plain" },
+        });
+      })
+    );
   }
-})
+});
+
 
