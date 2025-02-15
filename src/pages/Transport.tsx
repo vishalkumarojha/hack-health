@@ -1,66 +1,80 @@
-import { MapPin, Clock, Users, Phone } from "lucide-react"
+"use client"
+
+import * as React from "react"
+import { format } from "date-fns"
+
+import { Card, CardContent, CardHeader, CardTitle } from "../components/UI/card"
+import { Badge } from "../components/UI/badge"
+import { Separator } from "../components/UI/separator"
 import { transportOptions } from "../lib/data"
 
-export default function Transport() {
-  const getTransportTypeStyles = (type: string) => {
-    switch (type) {
-      case "shuttle":
-        return "bg-blue-50 border-blue-500 text-blue-700"
-      case "parking":
-        return "bg-green-50 border-green-500 text-green-700"
-      case "public":
-        return "bg-yellow-50 border-yellow-500 text-yellow-700"
-      default:
-        return "bg-gray-50 border-gray-500 text-gray-700"
-    }
-  }
+export default function TransportPage() {
+  // Group transport options by date
+  const groupedTransport = React.useMemo(() => {
+    return transportOptions.reduce(
+      (acc, option) => {
+        const date = option.date
+        if (!acc[date]) {
+          acc[date] = []
+        }
+        acc[date].push(option)
+        return acc
+      },
+      {} as Record<string, typeof transportOptions>,
+    )
+  }, [])
+
+  const dates = ["2025-02-18", "2025-02-19"]
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-16">
-      <h1 className="text-4xl font-bold mb-8">Transportation</h1>
-      <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
-        {transportOptions.map((option) => (
-          <div
-            key={option.id}
-            className={`border-l-4 ${getTransportTypeStyles(
-              option.type,
-            )} bg-white shadow-sm rounded-lg overflow-hidden`}
-          >
-            <div className="p-6">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div>
-                  <h2 className="text-xl font-semibold mb-2">{option.name}</h2>
-                  <p className="text-gray-600 mb-4">{option.description}</p>
-                  <div className="grid gap-3">
-                    <div className="flex items-center gap-2 text-sm">
-                      <MapPin className="h-4 w-4" />
-                      <span>{option.location.name}</span>
+    <div className="container mx-auto py-6 px-4">
+      <h1 className="text-3xl font-bold tracking-tight mb-6">Transport Details</h1>
+      <div className="grid md:grid-cols-2 gap-6">
+        {dates.map((date) => (
+          <div key={date} className="space-y-4">
+            <h2 className="text-xl font-semibold">{format(new Date(date), "EEEE, MMMM d, yyyy")}</h2>
+            <div className="space-y-4">
+              {(groupedTransport[date] || []).map((option) => (
+                <Card key={option.id}>
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <CardTitle className="text-lg">{option.name}</CardTitle>
+                      <Badge variant="secondary">{option.type}</Badge>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <Clock className="h-4 w-4" />
-                      <div className="flex flex-col">
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-2">
+                      <div className="text-sm text-muted-foreground">Route</div>
+                      <div className="font-medium">
+                        From: {option.location.name}
+                        <br />
+                        To: {option.location.address.split(" to ")[1]}
+                      </div>
+                    </div>
+                    <Separator />
+                    <div className="space-y-2">
+                      <div className="text-sm text-muted-foreground">Schedule</div>
+                      <div className="font-medium">
                         {option.schedule.map((time, index) => (
-                          <span key={index}>{time}</span>
+                          <div key={index}>{time}</div>
                         ))}
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <Users className="h-4 w-4" />
-                      <span>Capacity: {option.capacity} passengers</span>
+                    <Separator />
+                    <div className="space-y-2">
+                      <div className="text-sm text-muted-foreground">Bus Details</div>
+                      <div className="font-medium">{option.contact}</div>
                     </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <Phone className="h-4 w-4" />
-                      <span>{option.contact}</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-col items-end">
-                  <span className="text-2xl font-bold">{option.price}</span>
-                  {/* <button className="mt-4 px-6 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors">
-                    Book Now
-                  </button> */}
-                </div>
-              </div>
+                  </CardContent>
+                </Card>
+              ))}
+              {(!groupedTransport[date] || groupedTransport[date].length === 0) && (
+                <Card>
+                  <CardContent className="py-4">
+                    <p className="text-center text-muted-foreground">No transport options available for this date.</p>
+                  </CardContent>
+                </Card>
+              )}
             </div>
           </div>
         ))}

@@ -6,8 +6,10 @@ import type { NavItem } from "../lib/types"
 
 const navItems: NavItem[] = [
   { title: "Announcements", href: "/announcements" },
-  { title: "Schedule", href: "/schedule" },
-  { title: "Transport", href: "/transport" },
+  { title: "Schedule", href: "https://drive.google.com/file/d/1feiu39OJ_RcOXmewEV6uIuyJbSSkszBV/view?usp=sharing" },
+  { title: "Transport", href: "https://drive.google.com/file/d/1P73VtQvAcHvrUoSRO3dyJz6YmKx-HNnM/view?usp=sharing" },
+  { title: "Floor Layout",  href: "https://drive.google.com/file/d/14pLV4h4gVK7rU1EQ3GY84mks1BsXsJEc/view?usp=sharing" },
+  { title: "Room Details",  href: "https://drive.google.com/file/d/1iIhykC5T2AhbJvjW8ZNGT2mQQU6KvjSr/view?usp=sharing" },
 ]
 
 export default function Navbar() {
@@ -46,7 +48,7 @@ export default function Navbar() {
         </div>
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden z-50 relative">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <Link
@@ -65,4 +67,3 @@ export default function Navbar() {
     </header>
   )
 }
-

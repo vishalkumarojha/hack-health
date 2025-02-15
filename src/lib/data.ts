@@ -1,82 +1,77 @@
-import type { Team, Accommodation, TransportOption } from "./types"
-
-export const teams: Team[] = [
-  {
-    $id: "1",
-    name: "HealthTech Innovators",
-    members: [
-      {
-        id: "1",
-        name: "John Doe",
-        role: "Full Stack Developer",
-        avatar: "/placeholder.svg?height=80&width=80",
-        bio: "Experienced developer with a passion for healthcare innovation",
-        skills: ["React", "Node.js", "Python", "AWS"],
-      },
-      {
-        id: "2",
-        name: "Jane Smith",
-        role: "UI/UX Designer",
-        avatar: "/placeholder.svg?height=80&width=80",
-        bio: "Creative designer focused on creating intuitive healthcare interfaces",
-        skills: ["Figma", "Adobe XD", "Sketch", "User Research"],
-      },
-    ],
-    project: "AI-Powered Health Monitoring",
-    description: "Developing an AI system for early disease detection using wearable data.",
-    techStack: ["React", "Python", "TensorFlow", "AWS", "Docker"],
-    accommodationId: "1",
-  },
-  // Add more teams...
-]
-
-export const accommodations: Accommodation[] = [
-  {
-    id: "1",
-    name: "Tech Hub Hotel",
-    type: "hotel",
-    description: "Modern hotel with tech-friendly amenities, perfect for hackathon participants.",
-    distance: "5 min walk",
-    price: "$120/night",
-    amenities: ["Free Wi-Fi", "24/7 Access", "Co-working Space", "Breakfast"],
-    images: [
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
-      "/placeholder.svg?height=400&width=600",
-    ],
-    capacity: 50,
-    available: 20,
-    location: {
-      name: "Tech Hub Hotel",
-      address: "123 Tech Street, Innovation District",
-      coordinates: {
-        lat: 40.7128,
-        lng: -74.006,
-      },
-    },
-  },
-  // Add more accommodations...
-]
+import type { TransportOption } from "./types"
 
 export const transportOptions: TransportOption[] = [
   {
-    id: 33,
+    id: 1,
     type: "shuttle",
-    name: "Event Shuttle Service",
-    description: "Free shuttle service between venue and official accommodations",
-    schedule: ["Every 30 mins from 7:00 AM to 10:00 PM"],
+    name: "Morning Shuttle - Sehore to VIT",
+    description: "Morning shuttle service from Sehore Bus stand to VIT Bhopal",
+    schedule: ["Departure: 9:00 am", "Arrival: 9:45 am"],
     location: {
-      address: "123 Event Venue Street",
-      name: "Main Entrance",
+      address: "Sehore Bus stand to VIT Bhopal",
+      name: "Sehore Bus Stand",
       coordinates: {
-        lat: 40.7128,
-        lng: -74.006,
+        lat: 23.2032,
+        lng: 77.085,
       },
     },
-    capacity: 20,
-    price: "",
-    contact: "+1 (555) 123-4567",
+    date: "2025-02-18",
+    price: "Free",
+    contact: "Bus Numbers: 5, 10, and 15",
   },
-  // Add more transport options...
+  {
+    id: 2,
+    type: "shuttle",
+    name: "Evening Shuttle - VIT to Sehore",
+    description: "Evening shuttle service from VIT Bhopal to Sehore Bus stand",
+    schedule: ["Departure: 6:00 pm", "Arrival: 7:00 pm"],
+    location: {
+      address: "VIT Bhopal to Sehore Bus stand",
+      name: "VIT Bhopal University Main Entrance",
+      coordinates: {
+        lat: 23.0778,
+        lng: 76.8513,
+      },
+    },
+    date: "2025-02-18",
+    price: "Free",
+    contact: "Bus numbers: 1, 7, 15",
+  },
+  {
+    id: 3,
+    type: "shuttle",
+    name: "Morning Campus Shuttle",
+    description: "Morning shuttle service from Faculty housing to Transport yard",
+    schedule: ["Departure: 8:30 am", "Arrival: 8:45 am"],
+    location: {
+      address: "Faculty housing to Transport yard",
+      name: "Faculty Housing",
+      coordinates: {
+        lat: 23.0778,
+        lng: 76.8513,
+      },
+    },
+    date: "2025-02-18",
+    price: "Free",
+    contact: "Bus Numbers: 1, 2",
+  },
+  {
+    id: 4,
+    type: "shuttle",
+    name: "Evening Campus Shuttle",
+    description: "Evening shuttle service from Transport yard to Faculty housing",
+    schedule: ["Departure: 6:00 pm", "Arrival: 6:15 pm"],
+    location: {
+      address: "Transport yard to Faculty housing",
+      name: "Transport Yard",
+      coordinates: {
+        lat: 23.0778,
+        lng: 76.8513,
+      },
+    },
+    date: "2025-02-18",
+    price: "Free",
+    contact: "Bus Numbers: 2, 6",
+  },
 ]
 

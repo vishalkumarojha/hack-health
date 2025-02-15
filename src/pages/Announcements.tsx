@@ -12,42 +12,42 @@ export default function Announcements() {
   const [announcements] = useState<Announcement[]>([
     {
       $id: "1",
-      title: "Welcome to Health Hack 2024!",
+      title: "Welcome to Health Hack 2025",
       content:
         "We're excited to kick off this year's hackathon. Get ready for an amazing journey of innovation and creativity in healthcare technology.",
       date: new Date().toISOString(),
       priority: "high",
     },
-    {
-      $id: "2",
-      title: "Mentor Sessions Available",
-      content:
-        "Book your mentor sessions now! Our industry experts are ready to guide you through your project development.",
-      date: new Date(Date.now() - 86400000).toISOString(),
-      priority: "medium",
-    },
-    {
-      $id: "3",
-      title: "Workshop: AI in Healthcare",
-      content:
-        "Join us tomorrow at 2 PM for an exciting workshop on implementing AI solutions in healthcare applications.",
-      date: new Date(Date.now() - 172800000).toISOString(),
-      priority: "medium",
-    },
-    {
-      $id: "4",
-      title: "Deadline Extension",
-      content: "Project submission deadline has been extended by 24 hours. Make the most of this extra time!",
-      date: new Date(Date.now() - 259200000).toISOString(),
-      priority: "high",
-    },
-    {
-      $id: "5",
-      title: "New Resources Available",
-      content: "Check out the new healthcare APIs and datasets added to our resources section.",
-      date: new Date(Date.now() - 345600000).toISOString(),
-      priority: "low",
-    },
+    // {
+    //   $id: "2",
+    //   title: "Mentor Sessions Available",
+    //   content:
+    //     "Book your mentor sessions now! Our industry experts are ready to guide you through your project development.",
+    //   date: new Date(Date.now() - 86400000).toISOString(),
+    //   priority: "medium",
+    // },
+    // {
+    //   $id: "3",
+    //   title: "Workshop: AI in Healthcare",
+    //   content:
+    //     "Join us tomorrow at 2 PM for an exciting workshop on implementing AI solutions in healthcare applications.",
+    //   date: new Date(Date.now() - 172800000).toISOString(),
+    //   priority: "medium",
+    // },
+    // {
+    //   $id: "4",
+    //   title: "Deadline Extension",
+    //   content: "Project submission deadline has been extended by 24 hours. Make the most of this extra time!",
+    //   date: new Date(Date.now() - 259200000).toISOString(),
+    //   priority: "high",
+    // },
+    // {
+    //   $id: "5",
+    //   title: "New Resources Available",
+    //   content: "Check out the new healthcare APIs and datasets added to our resources section.",
+    //   date: new Date(Date.now() - 345600000).toISOString(),
+    //   priority: "low",
+    // },
   ]);
 
   const getPriorityColor = (priority: string) => {
