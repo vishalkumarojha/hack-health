@@ -7,7 +7,7 @@ import type { NavItem } from "../lib/types"
 const navItems: NavItem[] = [
   { title: "Announcements", href: "/announcements" },
   { title: "Schedule", href: "https://drive.google.com/file/d/1feiu39OJ_RcOXmewEV6uIuyJbSSkszBV/view?usp=sharing" },
-  { title: "Transport", href: "https://drive.google.com/file/d/1P73VtQvAcHvrUoSRO3dyJz6YmKx-HNnM/view?usp=sharing" },
+  { title: "Transport", href: "https://drive.google.com/file/d/1N3Vjjyxy41P32Upo61sAUyLBYyr3j2iJ/view?usp=sharing" },
   { title: "Floor Layout",  href: "https://drive.google.com/file/d/14pLV4h4gVK7rU1EQ3GY84mks1BsXsJEc/view?usp=sharing" },
   { title: "Room Details",  href: "https://drive.google.com/file/d/1iIhykC5T2AhbJvjW8ZNGT2mQQU6KvjSr/view?usp=sharing" },
 ]
